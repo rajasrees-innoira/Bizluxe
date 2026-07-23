@@ -1,0 +1,1 @@
+export { usePageTransition as useTransition } from '@/components/transition/PageTransition';
