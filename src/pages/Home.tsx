@@ -25,7 +25,7 @@ export default function Home() {
       <WhyBizluxe />
       <ExclusiveCollection />
       <PropertyCarousel />
-      {/* <Services /> */}
+      
       <DeveloperPartners />
       <Testimonials />
       <PublishProperty />
