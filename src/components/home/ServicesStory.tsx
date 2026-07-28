@@ -189,7 +189,7 @@ export function ServicesStory() {
                   className="absolute inset-x-0 top-1/2 -translate-y-1/2 max-w-xl px-6 md:px-12"
                   style={{ willChange: 'transform, opacity' }}
                 >
-                  <div className="flex h-[320px] sm:h-[340px] md:h-[360px] flex-col justify-between">
+                  <div className="flex flex-col">
                     <div>
                       {/* <p className="text-primary font-semibold tracking-[0.25em] uppercase text-xs md:text-sm mb-3">
                         {s.tagline}
@@ -198,7 +198,7 @@ export function ServicesStory() {
                         {s.title}
                       </h3>
                       <p className="text-white/70 font-light leading-relaxed mb-4 max-w-md">{s.desc}</p>
-                      <ul className="flex flex-col gap-2 mb-4">
+                      <ul className="flex flex-col gap-2 mb-6">
                         {s.benefits.map((b) => (
                           <li key={b} className="text-white/50 text-xs md:text-sm tracking-wide flex items-center gap-2">
                             <span className="w-1 h-1 rounded-full bg-primary shrink-0" />

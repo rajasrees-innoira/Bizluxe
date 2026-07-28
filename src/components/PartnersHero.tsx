@@ -2,7 +2,7 @@ import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
+import Autoplay from "embla-carousel-autoplay";
 // -----------------------------------------------------------------------------
 // Ticker content - the words that scroll beneath the headline. These are the
 // *categories* of alliance BixLuze curates, not a sequence, so no numbering.
@@ -38,7 +38,7 @@ export function PartnersHero() {
   const headingRef = useScrollAnimation<HTMLDivElement>({ type: 'fade-up', staggerDelay: 0.15 });
   const subRef = useScrollAnimation<HTMLDivElement>({ type: 'fade-up', staggerDelay: 0.3 });
 
-  const [emblaRef] = useEmblaCarousel({ align: 'start', loop: true, dragFree: true });
+  const [emblaRef] = useEmblaCarousel({ align: 'start', loop: true, dragFree: true, slidesToScroll: 1 }, [Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })]);
 
   return (
     <section className="relative bg-[#1F1F1F] overflow-hidden pt-40 pb-20 md:pt-48 md:pb-28">
@@ -55,13 +55,13 @@ export function PartnersHero() {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div ref={eyebrowRef} className="flex flex-col items-center text-center">
-          <div className="flex items-center gap-4 mb-6 text-primary">
+          {/* <div className="flex items-center gap-4 mb-6 text-primary">
             <span className="w-8 h-px bg-primary/50" />
             <span className="text-xs font-semibold tracking-[0.35em] uppercase">
               Alliances Built On Trust
             </span>
             <span className="w-8 h-px bg-primary/50" />
-          </div>
+          </div> */}
         </div>
 
         <div ref={headingRef} className="text-center">
@@ -73,11 +73,7 @@ export function PartnersHero() {
         </div>
 
         <div ref={subRef} className="flex flex-col items-center mt-10">
-          <div className="flex items-center gap-4 mb-8 w-full max-w-[220px]">
-            <span className="flex-1 h-px bg-white/15" />
-            <DiamondMark />
-            <span className="flex-1 h-px bg-white/15" />
-          </div>
+          
           <p className="text-white/60 font-light text-base md:text-lg leading-relaxed max-w-[620px] text-center">
             Every acquisition BixLuze delivers is backed by a private network of the region's most
             distinguished developers, institutions and craftsmen - assembled over a decade,
