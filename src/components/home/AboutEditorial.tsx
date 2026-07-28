@@ -75,7 +75,7 @@ export function AboutEditorial() {
   return (
     <section
       ref={ref}
-      className="relative bg-white"
+      className="relative bg-white py-24 md:py-32 lg:py-36"
       style={reduceMotion ? undefined : { height: `${count * 100}vh` }}
       id="about-bizluxe"
     >

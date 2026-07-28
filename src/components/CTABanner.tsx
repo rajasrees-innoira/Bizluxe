@@ -53,7 +53,7 @@ export function CTABanner() {
             </p>
 
             <Button 
-              className="mt-12 bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-[#1F1F1F] rounded-full px-10 py-8 text-xl font-medium transition-all duration-500 hover:scale-105"
+              className="mt-10 bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-[#1F1F1F] rounded-full px-6 py-3 text-sm md:text-base font-medium transition-all duration-500 hover:scale-105"
               onClick={() => setIsOpen(true)}
             >
               Book Private Viewing
