@@ -49,7 +49,7 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
           <div ref={headingRef} className="flex flex-col items-center">
           
-            <h1 className="font-heading font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[#F7F5F2] text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl [text-shadow:0_2px_24px_rgba(0,0,0,0.45)]">
+            <h1 className="font-heading font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[#F7F5F2] text-[11vw] sm:text-5xl md:text-6xl lg:text-7xl [text-shadow:0_2px_24px_rgba(0,0,0,0.45)]">
               Homes Built
               <br />
               <span className="text-primary italic font-medium">To Be Remembered</span>

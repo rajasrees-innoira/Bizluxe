@@ -211,12 +211,12 @@ export function Navbar() {
   BizLuxe<span className="text-primary">.</span>
 </Link>
 
-<Button
+{/* <Button
   className="pointer-events-auto ml-auto bg-[#1F1F1F] text-white hover:bg-primary rounded-full px-3 py-2 text-[11px] sm:px-6 sm:py-5 md:px-8 md:py-6 sm:text-sm md:text-base font-semibold shadow-warm hover:-translate-y-0.5 transition-all duration-300"
   onClick={(e) => handleNavClick(e as any, '#consultation')}
 >
   Get a Quote
-</Button>
+</Button> */}
         </div>
       </div>
 

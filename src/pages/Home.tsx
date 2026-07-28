@@ -33,7 +33,7 @@ export default function Home() {
       {/* <CustomerJourney /> */}
 
       {/* ---- Existing property/discovery sections, unchanged ---- */}
-      <FeaturedProperties />
+      {/* <FeaturedProperties /> */}
       <Communities />
       <Categories />
       <WhyBizluxe />

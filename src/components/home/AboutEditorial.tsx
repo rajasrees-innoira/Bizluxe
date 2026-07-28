@@ -12,20 +12,6 @@ import mansionExterior from '@/assets/mansion-exterior.jpg';
 import penthouseInterior from '@/assets/penthouse-interior.jpg';
 import beachVilla from '@/assets/beach-villa.jpg';
 
-// -----------------------------------------------------------------------------
-// AboutEditorial — "Who We Are" as a pinned-image / scrolling-copy sequence.
-// Left column stays fixed in the viewport while three short statements pass
-// through on the right, each one swapping the pinned image.
-//
-// IMPORTANT: only ONE beat is ever mounted in the copy column at a time.
-// An earlier version stacked all three as absolutely-positioned, opacity-
-// animated siblings — during the transition window multiple of them were
-// partially visible simultaneously, so the text visibly overlapped/smeared.
-// Instead we derive a single discrete "active index" from scroll position
-// and swap the whole text block via AnimatePresence, so exactly one heading
-// is ever in the DOM.
-// -----------------------------------------------------------------------------
-
 const BEATS = [
   {
     eyebrow: '01 — Beyond the Listing',
@@ -57,7 +43,6 @@ export function AboutEditorial() {
     offset: ['start start', 'end end'],
   });
 
-  // Discrete step 0..count-1 derived from continuous scroll progress.
   const activeStep = useTransform(scrollYProgress, (p) =>
     Math.min(count - 1, Math.max(0, Math.floor(p * count))),
   );
@@ -82,8 +67,7 @@ export function AboutEditorial() {
       <div className={reduceMotion ? 'py-24' : 'sticky top-0 h-screen overflow-hidden flex items-center'}>
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Pinned image — crossfades with the active beat */}
-            <div className="relative order-2 lg:order-1 aspect-[4/5] rounded-[32px] overflow-hidden shadow-[0_40px_100px_-30px_rgba(31,31,31,0.3)]">
+            <div className="relative order-2 lg:order-1 w-full max-w-[280px] sm:max-w-[340px] md:max-w-[400px] lg:max-w-[380px] xl:max-w-[440px] mx-auto lg:mx-0 aspect-[4/5] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_20px_60px_-25px_rgba(31,31,31,0.3)] md:shadow-[0_40px_100px_-30px_rgba(31,31,31,0.3)]">
               <AnimatePresence initial={false} mode="sync">
                 <motion.div
                   key={beat.image}
@@ -99,8 +83,7 @@ export function AboutEditorial() {
               </AnimatePresence>
             </div>
 
-            {/* Copy — exactly one beat mounted at a time */}
-            <div className="order-1 lg:order-2 relative min-h-[320px]">
+            <div className="order-1 lg:order-2 relative min-h-[260px] sm:min-h-[300px] lg:min-h-[320px]">
               <AnimatePresence initial={false} mode="wait">
                 <motion.div
                   key={beat.heading}
@@ -121,7 +104,6 @@ export function AboutEditorial() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Progress dots — echoes the pattern used elsewhere on the site */}
               <div className="flex gap-2 mt-10">
                 {BEATS.map((_, i) => (
                   <span

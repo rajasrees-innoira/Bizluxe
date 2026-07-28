@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { Property } from '../../data/Propertydata';
 import { PropertyCard } from './PropertyCard';
 import { Loader2 } from 'lucide-react';
@@ -16,6 +16,31 @@ interface PropertyGridProps {
   onOpenGallery: (property: Property) => void;
 }
 
+// sessionStorage key - visibleCount is stashed here per filtered-list
+// signature so it survives a remount of <PropertyGrid> (e.g. the parent
+// re-rendering / the grid briefly leaving and re-entering the DOM as you
+// scroll), instead of silently resetting back to PAGE_SIZE. sessionStorage
+// (not localStorage) means it clears itself once the browser tab closes,
+// so it never "sticks" across a real new visit.
+const STORAGE_KEY = 'bizluxe_property_grid_visible_count';
+
+function readStoredState(): { signature: string; count: number } | null {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredState(signature: string, count: number) {
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ signature, count }));
+  } catch {
+    /* sessionStorage unavailable (e.g. private mode) - safe to ignore */
+  }
+}
+
 export function PropertyGrid({
   properties,
   mapOpen,
@@ -26,12 +51,47 @@ export function PropertyGrid({
   onQuickView,
   onOpenGallery,
 }: PropertyGridProps) {
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  // Lightweight signature of the CURRENT filtered list (the ids in it,
+  // joined) instead of relying on array identity. Parent components often
+  // recompute `properties` into a brand-new array reference on every
+  // render even when the actual contents haven't changed - keying off the
+  // real ids means we only treat it as "a new list" when the properties
+  // actually differ (a new filter/search was applied), not on every render.
+  const listSignature = properties.map((p) => p.id).join(',');
+
+  // Initialize from sessionStorage on first mount (or immediately after a
+  // remount) so a page that was scrolled away from and back to - or a
+  // component that got torn down and rebuilt by a parent re-render - picks
+  // up exactly where the user left off instead of snapping back to
+  // PAGE_SIZE.
+  const [visibleCount, setVisibleCount] = useState<number>(() => {
+    const stored = readStoredState();
+    if (stored && stored.signature === listSignature) {
+      return Math.min(Math.max(stored.count, PAGE_SIZE), properties.length || PAGE_SIZE);
+    }
+    return Math.min(PAGE_SIZE, properties.length || PAGE_SIZE);
+  });
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-useEffect(() => {
-  setVisibleCount(PAGE_SIZE);
-}, [properties]);
+  // Only reset to PAGE_SIZE when the actual set of properties changes (a
+  // new filter/search was applied) - never merely because this component
+  // instance is fresh.
+  const prevSignatureRef = useRef(listSignature);
+  useEffect(() => {
+    if (prevSignatureRef.current !== listSignature) {
+      prevSignatureRef.current = listSignature;
+      setVisibleCount(Math.min(PAGE_SIZE, properties.length));
+      writeStoredState(listSignature, Math.min(PAGE_SIZE, properties.length));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listSignature]);
+
+  // Keep sessionStorage in sync whenever visibleCount changes (e.g. after
+  // clicking Load More), so the persisted value is always current.
+  useEffect(() => {
+    writeStoredState(listSignature, visibleCount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visibleCount, listSignature]);
 
   const visible = properties.slice(0, visibleCount);
   const hasMore = visibleCount < properties.length;
@@ -39,11 +99,12 @@ useEffect(() => {
   const handleLoadMore = () => {
     if (isLoadingMore) return;
     setIsLoadingMore(true);
-    // Small delay so the button state change is visible and the new cards'
-    // whileInView animation has a clean beat to trigger on — this is what
-    // stops the "instant snap + flash" of content appearing mid-frame.
+    // Small delay so the button state change is visible and the newly
+    // revealed cards' whileInView animation has a clean beat to trigger on.
+    // Reveals EVERYTHING remaining in one go, rather than paginating again -
+    // once you've asked to see more, all the hidden properties show up.
     window.setTimeout(() => {
-      setVisibleCount((v) => v + PAGE_SIZE);
+      setVisibleCount(properties.length);
       setIsLoadingMore(false);
     }, 400);
   };

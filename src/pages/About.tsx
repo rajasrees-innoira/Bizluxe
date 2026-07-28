@@ -57,7 +57,7 @@ function ScrollRevealParagraph({
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.88', 'start 0.3'],
+    offset: ['start 0.45', 'start 0.03'],
   });
 
   const words = text.split(' ');

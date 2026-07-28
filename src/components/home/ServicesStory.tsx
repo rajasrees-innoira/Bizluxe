@@ -175,7 +175,7 @@ export function ServicesStory() {
           <p className="text-primary font-medium tracking-[0.3em] uppercase text-xs md:text-sm mb-3">
             What We Do
           </p>
-          <h2 className="font-heading font-bold text-3xl md:text-5xl text-white">Complete Services</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-5xl text-white">Our Services</h2>
         </div>
 
         {/* Content per service */}
@@ -186,31 +186,35 @@ export function ServicesStory() {
                 <div
                   key={s.id}
                   ref={(el) => { contentRefs.current[i] = el; }}
-                  className="absolute inset-x-0 max-w-xl px-6 md:px-12"
+                  className="absolute inset-x-0 top-1/2 -translate-y-1/2 max-w-xl px-6 md:px-12"
                   style={{ willChange: 'transform, opacity' }}
                 >
-                  <p className="text-primary font-semibold tracking-[0.25em] uppercase text-xs md:text-sm mb-3">
-                    {s.tagline}
-                  </p>
-                  <h3 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-5">
-                    {s.title}
-                  </h3>
-                  <p className="text-white/70 font-light leading-relaxed mb-6 max-w-md">{s.desc}</p>
-                  <ul className="flex flex-wrap gap-x-5 gap-y-2 mb-8">
-                    {s.benefits.map((b) => (
-                      <li key={b} className="text-white/50 text-xs md:text-sm tracking-wide flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-primary" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="group inline-flex items-center gap-2 bg-white/95 text-[#1F1F1F] rounded-full px-6 py-3 text-sm font-semibold hover:bg-primary hover:text-white transition-colors duration-300"
-                  >
-                    {s.cta}
-                    <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </button>
+                  <div className="flex h-[320px] sm:h-[340px] md:h-[360px] flex-col justify-between">
+                    <div>
+                      {/* <p className="text-primary font-semibold tracking-[0.25em] uppercase text-xs md:text-sm mb-3">
+                        {s.tagline}
+                      </p> */}
+                      <h3 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+                        {s.title}
+                      </h3>
+                      <p className="text-white/70 font-light leading-relaxed mb-4 max-w-md">{s.desc}</p>
+                      <ul className="flex flex-col gap-2 mb-4">
+                        {s.benefits.map((b) => (
+                          <li key={b} className="text-white/50 text-xs md:text-sm tracking-wide flex items-center gap-2">
+                            <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <button
+                      onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="group inline-flex items-center gap-2 bg-white/95 text-[#1F1F1F] rounded-full px-6 py-3 text-sm font-semibold hover:bg-primary hover:text-white transition-colors duration-300 w-fit"
+                    >
+                      {s.cta}
+                      <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
