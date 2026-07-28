@@ -1,6 +1,10 @@
-// import React from 'react';
+// pages/Home.tsx
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
+import { TrustStats } from '@/components/home/TrustStats';
+import { AboutEditorial } from '@/components/home/AboutEditorial';
+import { ServicesStory } from '@/components/home/ServicesStory';
+import { CustomerJourney } from '@/components/home/CustomerJourney';
 import { FeaturedProperties } from '@/components/FeaturedProperties';
 import { Communities } from '@/components/Communities';
 import { Categories } from '@/components/Categories';
@@ -19,13 +23,22 @@ export default function Home() {
     <main className="min-h-screen bg-[#F7F5F2]">
       <Navbar />
       <Hero />
+
+      {/* ---- Phase 1: Trust + Story ---- */}
+      <TrustStats />
+      <AboutEditorial />
+
+      {/* ---- Phase 2: Services + Journey ---- */}
+      <ServicesStory />
+      {/* <CustomerJourney /> */}
+
+      {/* ---- Existing property/discovery sections, unchanged ---- */}
       <FeaturedProperties />
       <Communities />
       <Categories />
       <WhyBizluxe />
       <ExclusiveCollection />
       <PropertyCarousel />
-      
       <DeveloperPartners />
       <Testimonials />
       <PublishProperty />

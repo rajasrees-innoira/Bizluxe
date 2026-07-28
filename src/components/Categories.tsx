@@ -77,7 +77,7 @@ export function Categories() {
   const gridRef = useStaggeredAnimation<HTMLDivElement>(categories.length, 0.12, { type: 'fade-up' });
 
   return (
-    <section className="relative py-32 md:py-40 bg-[#141211] text-white overflow-hidden">
+    <section className="relative py-32 md:py-40 bg-[#ffffff] text-white overflow-hidden">
       {/* Ambient luxury background - vignette + soft radial glows, no texture/noise */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -90,7 +90,7 @@ export function Categories() {
         <div
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 40%, #0A0908 100%)',
+            background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 40%, #ffffff 100%)',
           }}
         />
       </div>
@@ -102,7 +102,7 @@ export function Categories() {
         <div ref={headingRef} className="flex flex-col items-center text-center mb-20 md:mb-24">
           
 
-          <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white mb-8">
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-black mb-8">
             Curated Portfolios
           </h2>
 
@@ -112,7 +112,7 @@ export function Categories() {
             <span className="flex-1 h-px bg-white/15" />
           </div>
 
-          <p className="text-white/55 font-light text-base md:text-lg leading-relaxed max-w-[650px]">
+          <p className="text-black/85 font-light text-base md:text-lg leading-relaxed max-w-[650px]">
             Discover hand-selected collections of Dubai's most exceptional residences, curated for
             discerning buyers seeking timeless architecture and elevated living.
           </p>

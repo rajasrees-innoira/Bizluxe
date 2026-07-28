@@ -43,6 +43,8 @@ const APARTMENTS: Apartment[] = [
 // How much scroll (in vh) the whole pinned reveal sequence takes.
 const SEQUENCE_VH = 140;
 
+// ApartmentsSection.tsx
+
 export function ApartmentsSection() {
   const { gsap } = useGsap();
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -57,10 +59,6 @@ export function ApartmentsSection() {
       const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
       const count = cards.length;
 
-      // ---- Rest state ----
-      // Cards 2..N start basically invisible and sitting lower.
-      // Card 1 is kept subtly visible at rest (not fully alpha:0) so the
-      // section never reads as "empty" before the user starts scrolling.
       gsap.set(cards.slice(1), { autoAlpha: 0, y: 70 });
       gsap.set(cards[0], { autoAlpha: 0.18, y: 40 });
 
@@ -78,10 +76,6 @@ export function ApartmentsSection() {
         },
       });
 
-      // Each card gets an equal slice of the timeline. Because this is a
-      // scrub timeline (not toggleActions), scrolling up naturally reverses
-      // through these tweens in exact reverse order - the cards fade back
-      // down exactly as they faded up, no extra logic required.
       cards.forEach((card, i) => {
         const label = `card${i}`;
         tl.addLabel(label);
@@ -104,9 +98,9 @@ export function ApartmentsSection() {
 
   return (
     <section ref={sectionRef} className="relative bg-[#F7F5F2]" id="apartments">
-      <div ref={pinRef} className="relative min-h-screen w-full flex items-center py-24 md:py-0">
+      <div ref={pinRef} className="relative min-h-screen w-full flex items-center py-24 md:py-28 lg:py-32">
         <div className="container mx-auto px-6 md:px-12">
-          {/* Heading is static - always visible, never part of the scroll timeline */}
+          {/* Heading */}
           <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
             <p className="text-primary font-medium tracking-[0.3em] uppercase mb-4 text-sm">Sky-High Living</p>
             <h2 className="text-4xl md:text-6xl font-heading font-bold text-[#1F1F1F] leading-[1.05]">
@@ -130,7 +124,7 @@ export function ApartmentsSection() {
 
                 <div className="w-full h-px bg-[#D8D8D8] my-6" />
 
-                <div className="flex-1 flex flex-col">
+                <div className="flex-1 flex flex-col px-1">
                   <h3 className="text-2xl font-heading font-bold text-[#1F1F1F] mb-2">{apt.title}</h3>
                   <p className="text-[#5F5F5F] font-light leading-relaxed mb-4">{apt.description}</p>
                   <p className="text-[#5F5F5F] text-sm mb-2">{apt.location}</p>

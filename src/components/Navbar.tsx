@@ -12,7 +12,7 @@ import logo from '@/assets/logo.webp';
 
 const NAV_LINKS = [
   { name: 'About', href: '/about' },
-  { name: 'Collection', href: '/collections' },
+  { name: 'Properties', href: '/properties' },
   { name: 'Team', href: '/team' },
   { name: 'Our Partners', href: '/partners' },
   { name: 'Contact', href: '/contact' },
