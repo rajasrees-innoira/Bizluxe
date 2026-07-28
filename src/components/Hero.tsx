@@ -56,25 +56,26 @@ export function Hero() {
             </h1>
           </div>
 
-          <div ref={buttonsRef} className="mt-5 mb-4 flex flex-wrap justify-center gap-3">
-            <Button
-  className="bg-white text-[#0C0C0C] hover:bg-primary hover:text-white rounded-full px-5 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base font-semibold shadow-warm hover:-translate-y-1 transition-all duration-300"
-              onClick={() => {
-                document.getElementById('collection')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-             Explore Properties
-</Button>
-<Button
-  variant="outline"
-  className="border-white/70 text-white hover:bg-white hover:text-[#0C0C0C] rounded-full px-5 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base font-semibold hover:-translate-y-1 transition-all duration-300 bg-transparent backdrop-blur-sm"
-              onClick={() => {
-                document.getElementById('publish')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Publish Property
-            </Button>
-          </div>
+          <div ref={buttonsRef} className="mt-5 mb-8 flex flex-wrap justify-center gap-3">
+  <Button
+    className="bg-white text-[#0C0C0C] hover:bg-primary hover:text-white rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2 text-xs sm:text-sm font-semibold shadow-warm hover:-translate-y-1 transition-all duration-300"
+    onClick={() => {
+      document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" });
+    }}
+  >
+    Explore Properties
+  </Button>
+
+  <Button
+    variant="outline"
+    className="border-white/70 text-white hover:bg-white hover:text-[#0C0C0C] rounded-full px-5 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-semibold hover:-translate-y-1 transition-all duration-300 bg-transparent backdrop-blur-sm"
+    onClick={() => {
+      document.getElementById("publish")?.scrollIntoView({ behavior: "smooth" });
+    }}
+  >
+    Publish Property
+  </Button>
+</div>
         </div>
       </div>
 
