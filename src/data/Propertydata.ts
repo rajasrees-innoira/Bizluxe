@@ -53,7 +53,7 @@ export interface Property {
 
 // ---------------------------------------------------------------------------
 // Real photography pool. Mixed in with the older stock set as filler so we
-// never run out — but real photos are weighted first.
+// never run out - but real photos are weighted first.
 // ---------------------------------------------------------------------------
 const REAL_POOL = [
   popular1, popular2, popular3, popular4, popular5, popular6, popular7,
@@ -66,7 +66,7 @@ const STOCK_POOL = [
   resortVilla, minimalistInterior, emiratesHills, palmJumeirah,
 ];
 
-/** Deterministic "random" shuffle seeded by property id — looks random,
+/** Deterministic "random" shuffle seeded by property id - looks random,
  *  but stays stable across re-renders/filter changes instead of reshuffling
  *  every time the component re-mounts. */
 function seededShuffle<T>(arr: T[], seed: number): T[] {
@@ -93,7 +93,7 @@ function buildGallery(id: number, count: 3 | 4 = 4): string[] {
 }
 
 // ---------------------------------------------------------------------------
-// Properties — image/images now generated per-property instead of shared
+// Properties - image/images now generated per-property instead of shared
 // ---------------------------------------------------------------------------
 const RAW_PROPERTIES: Omit<Property, 'image' | 'images'>[] = [
   { id: 1, title: 'The Waterway Mansion', location: 'Palm Jumeirah', priceValue: 165_000_000, price: 'AED 165,000,000', dealType: 'buy', propertyType: 'Villa', bedrooms: 6, bathrooms: 8, area: '14,500 sqft', badge: 'Exclusive', status: 'Available', featured: true, lat: 25.112, lng: 55.138 },

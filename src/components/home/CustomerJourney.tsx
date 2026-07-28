@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 
 // -----------------------------------------------------------------------------
-// CustomerJourney — a sticky section where a horizontal progress line fills
+// CustomerJourney - a sticky section where a horizontal progress line fills
 // as the user scrolls, and each milestone lights up in sequence. Distinct
 // from the pinned-image mechanics elsewhere: here the SIGNAL is a single
 // drawing line, deliberately restrained against the busier sections around it.

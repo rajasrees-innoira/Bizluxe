@@ -377,10 +377,10 @@ export default function About() {
             {differentiators.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.label} className="border-t border-white/15 pt-8">
-                  <Icon className="w-7 h-7 text-primary mb-6" strokeWidth={1.5} />
+                <div key={item.label} className="pt-8">
+                  {/* <Icon className="w-7 h-7 text-primary mb-6" strokeWidth={1.5} /> */}
                   <h3 className="font-heading font-bold text-xl mb-3">{item.label}</h3>
-                  <p className="text-white/60 font-light leading-relaxed">{item.line}</p>
+                  <p className="text-white/80 font-normal leading-relaxed">{item.line}</p>
                 </div>
               );
             })}

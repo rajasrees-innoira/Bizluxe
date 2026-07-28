@@ -11,7 +11,7 @@ import beachVilla from '@/assets/beach-villa.jpg';
 import emiratesHills from '@/assets/emirates-hills.jpg';
 
 // -----------------------------------------------------------------------------
-// ServicesStory — the seven services as one continuous pinned sequence
+// ServicesStory - the seven services as one continuous pinned sequence
 // (same pin/scrub mechanic as FarmhousesSection, reused deliberately since
 // both are "step through N items while the viewport holds still" stories,
 // but restyled: full-bleed background per service instead of a card grid).
@@ -179,14 +179,14 @@ export function ServicesStory() {
         </div>
 
         {/* Content per service */}
-        <div className="relative z-10 h-full flex items-center">
-          <div className="container mx-auto px-6 md:px-12">
-            <div className="max-w-xl">
+         <div className="relative z-10 h-full">
+          <div className="container mx-auto px-6 md:px-12 h-full">
+            <div className="relative max-w-xl h-full">
               {SERVICES.map((s, i) => (
                 <div
                   key={s.id}
                   ref={(el) => { contentRefs.current[i] = el; }}
-                  className="absolute inset-x-0 top-1/2 -translate-y-1/2 max-w-xl px-6 md:px-12"
+                 className="absolute inset-0 flex flex-col justify-center max-w-xl"
                   style={{ willChange: 'transform, opacity' }}
                 >
                   <div className="flex flex-col">
@@ -197,10 +197,10 @@ export function ServicesStory() {
                       <h3 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
                         {s.title}
                       </h3>
-                      <p className="text-white/70 font-light leading-relaxed mb-4 max-w-md">{s.desc}</p>
+                       <p className="text-white/85 font-normal leading-relaxed mb-4 max-w-md">{s.desc}</p>
                       <ul className="flex flex-col gap-2 mb-6">
                         {s.benefits.map((b) => (
-                          <li key={b} className="text-white/50 text-xs md:text-sm tracking-wide flex items-center gap-2">
+                          <li key={b} className="text-white/70 font-medium text-xs md:text-sm tracking-wide flex items-center gap-2">
                             <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
                             <span>{b}</span>
                           </li>

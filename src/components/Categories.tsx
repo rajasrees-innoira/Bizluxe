@@ -106,11 +106,7 @@ export function Categories() {
             Curated Portfolios
           </h2>
 
-          <div className="flex items-center gap-4 mb-8 w-full max-w-[220px]">
-            <span className="flex-1 h-px bg-white/15" />
-            <DiamondMark />
-            <span className="flex-1 h-px bg-white/15" />
-          </div>
+         
 
           <p className="text-black/85 font-light text-base md:text-lg leading-relaxed max-w-[650px]">
             Discover hand-selected collections of Dubai's most exceptional residences, curated for

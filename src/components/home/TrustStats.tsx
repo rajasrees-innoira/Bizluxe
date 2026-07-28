@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // -----------------------------------------------------------------------------
-// TrustStats — sits directly under the Hero. Establishes credibility in the
+// TrustStats - sits directly under the Hero. Establishes credibility in the
 // first scroll before any selling happens. Deliberately text-forward and
 // quiet: a single hairline-divided row, not cards, so it reads like a
 // masthead statistic strip (Sotheby's / FT-style) rather than a dashboard.

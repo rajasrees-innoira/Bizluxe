@@ -78,7 +78,11 @@ const toggleAmenity = (a: string) =>
       <div className="container mx-auto px-4 md:px-12 py-3 md:py-4">
         <div className="flex items-center gap-2 md:gap-3 overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
           {FILTERS.map((f) => (
-            <Select key={f.id} value={filters[f.id] || undefined} onValueChange={(v) => onFilterChange(f.id, v)}>
+            <Select
+              key={`${f.id}-${filters[f.id] || 'none'}`}
+              value={filters[f.id] || undefined}
+              onValueChange={(v) => onFilterChange(f.id, v)}
+            >
               <SelectTrigger className="h-11 w-auto min-w-[120px] shrink-0 rounded-full border-[#D8D8D8] px-4 text-xs md:text-sm">
                 <SelectValue placeholder={f.label} />
               </SelectTrigger>
@@ -90,16 +94,7 @@ const toggleAmenity = (a: string) =>
             </Select>
           ))}
 
-          <button
-  onClick={() => setAdvancedOpen(true)}
-  className="shrink-0 h-11 flex items-center gap-2 rounded-full border border-[#D8D8D8] px-4 text-xs md:text-sm font-medium text-[#1F1F1F] hover:border-primary hover:text-primary transition-colors"
->
-  <SlidersHorizontal size={14} />
-  More Filters
-  {(advanced.amenities.length > 0 || advanced.developer || advanced.completion || advanced.facing) && (
-    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-  )}
-</button>
+         
 
           {hasActiveFilters && (
             <button

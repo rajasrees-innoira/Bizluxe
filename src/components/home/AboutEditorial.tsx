@@ -14,21 +14,21 @@ import beachVilla from '@/assets/beach-villa.jpg';
 
 const BEATS = [
   {
-    eyebrow: '01 — Beyond the Listing',
+    eyebrow: '01 - Beyond the Listing',
     heading: 'We do more than sell luxury homes.',
-    body: 'BizLuxe represents a curated portfolio of architectural masterpieces across Dubai — chosen for design, provenance, and lasting value, introduced only to the buyers they are right for.',
+    body: 'BizLuxe represents a curated portfolio of architectural masterpieces across Dubai - chosen for design, provenance, and lasting value, introduced only to the buyers they are right for.',
     image: mansionExterior,
   },
   {
-    eyebrow: '02 — Beyond the Transaction',
+    eyebrow: '02 - Beyond the Transaction',
     heading: 'We guide buyers and advise investors.',
-    body: 'Every recommendation is backed by market data, legal diligence, and a decade of developer relationships — so your decision is never a leap of faith.',
+    body: 'Every recommendation is backed by market data, legal diligence, and a decade of developer relationships - so your decision is never a leap of faith.',
     image: penthouseInterior,
   },
   {
-    eyebrow: '03 — Beyond the Sale',
+    eyebrow: '03 - Beyond the Sale',
     heading: 'We manage properties and build relationships that last.',
-    body: 'From handover to concierge management, our senior advisors stay with you — the relationship continues long after the keys change hands.',
+    body: 'From handover to concierge management, our senior advisors stay with you - the relationship continues long after the keys change hands.',
     image: beachVilla,
   },
 ];
