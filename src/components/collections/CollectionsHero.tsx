@@ -20,7 +20,7 @@ export function CollectionsHero() {
   }, []);
 
   return (
-    <section className="relative h-[100vh] min-h-[720px] w-full overflow-hidden bg-[#0C0C0C]" id="collections-hero">
+    <section className="relative h-[85vh] min-h-[560px] w-full overflow-hidden bg-[#0C0C0C]" id="collections-hero">
       {/* Crossfading background slideshow */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence initial={false}>
@@ -50,8 +50,9 @@ export function CollectionsHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
-        <motion.p
+      <div className="relative z-10 h-full flex items-end px-6">
+        <div className="max-w-4xl text-left">
+          <motion.p
           initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -80,6 +81,7 @@ export function CollectionsHero() {
           A curated portfolio of farmhouses, penthouses and private estates -
           each one chosen for its architecture, privacy and enduring value.
         </motion.p>
+      </div>
       </div>
 
       {/* Scroll indicator */}

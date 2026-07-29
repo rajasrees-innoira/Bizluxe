@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Circle } from 'lucide-react';
-import mansionExterior from '@/assets/mansion-exterior.jpg';
+import mansionExterior from '@/assets/collection-penthouse-skyline.jpg';
 
 function useDubaiClock() {
   const [time, setTime] = useState('');
@@ -36,7 +36,7 @@ export function ContactHero() {
     <section className="relative h-[92vh] min-h-[640px] w-full overflow-hidden bg-[#0C0C0C] flex items-center" id="contact-hero">
       <div className="absolute inset-0 z-0">
         <img src={mansionExterior} alt="" className="w-full h-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/70 to-[#0C0C0C]/40" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/1 to-[#0C0C0C]/15" /> */}
         <div
           className="absolute inset-0"
           style={{

@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import mansionExterior from '@/assets/mansion-exterior.jpg';
+import mansionExterior from '@/assets/about page hero.png';
 import penthouseInterior from '@/assets/penthouse-interior.jpg';
 import emiratesHills from '@/assets/emirates-hills.jpg';
 import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation';

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import heroVideo from '@/assets/hero.mp4';

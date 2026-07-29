@@ -120,6 +120,23 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-[-0.03em] leading-[0.95];
   }
+  @keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 40s linear infinite;
+}
+
+/* Pause gracefully on hover if you want that affordance */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
 }
 
 /* Custom Utilities */

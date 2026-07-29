@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../ui/select';
-import mansionExterior from '@/assets/mansion-exterior.jpg';
+import mansionExterior from '@/assets/properties.png';
 import type { Filters, DealType } from '@/data/Propertydata';
 // -----------------------------------------------------------------------------
 // Content
@@ -90,14 +90,14 @@ export function PropertiesHero({ filters, onFilterChange }: PropertiesHeroProps)
       {/* ---------------------------------------------------------------- */}
       {/* Cinematic backdrop                                                */}
       {/* ---------------------------------------------------------------- */}
-      <div className="relative h-[78vh] min-h-[620px] w-full overflow-hidden flex flex-col">
+      <div className="relative h-[85vh] min-h-[560px] w-full overflow-hidden flex items-end">
         <div className="absolute inset-0 z-0">
           <img
             src={mansionExterior}
             alt=""
             className="w-full h-full object-cover scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/55 to-[#0C0C0C]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/40 to-[#0C0C0C]/25" />
           <div
             className="absolute inset-0"
             style={{
@@ -108,38 +108,52 @@ export function PropertiesHero({ filters, onFilterChange }: PropertiesHeroProps)
         </div>
 
         {/* Headline */}
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="text-primary font-medium tracking-[0.35em] uppercase text-xs md:text-sm mb-6"
-          >
-            The BizLuxe Marketplace
-          </motion.p>
+        <div className="container mx-auto px-6 md:px-12 relative z-10 pb-16 md:pb-24 h-full flex items-end">
+  <div className="max-w-4xl">
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="text-primary font-medium tracking-[0.35em] uppercase text-xs md:text-sm mb-6"
+    >
+      The BizLuxe Marketplace
+    </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[#F7F5F2] text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl [text-shadow:0_2px_30px_rgba(0,0,0,0.5)]"
-          >
-            Every Address,
-            <br />
-            <span className="text-primary italic font-medium">One Collection</span>
-          </motion.h1>
+    <motion.h1
+      initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{
+        duration: 1,
+        delay: 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="font-heading font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-white text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+    >
+      Every Address,
+      <br />
+      <span className="text-primary italic font-medium">
+        One Collection
+      </span>
+    </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 max-w-xl text-white/70 text-base md:text-lg font-light leading-relaxed"
-          >
-            Search hundreds of Dubai's most exceptional residences - curated, verified,
-            and ready to explore in seconds.
-          </motion.p>
-        </div>
-
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        delay: 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="mt-8 text-white/75 text-lg md:text-xl font-light max-w-2xl leading-relaxed"
+    >
+      Search hundreds of Dubai's most exceptional residences - curated,
+      verified, and ready to explore in seconds.
+    </motion.p>
+  </div>
+</div>
         {/* -------------------------------------------------------------- */}
         {/* Floating search card - anchored to the bottom edge of the hero */}
         {/* -------------------------------------------------------------- */}
