@@ -51,7 +51,7 @@ function MagneticButton({ children, ...props }: React.ComponentProps<typeof Butt
   const ref = useRef<HTMLButtonElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     const x = (e.clientX - rect.left - rect.width / 2) * 0.25;
@@ -138,16 +138,24 @@ export function ContactFormSection() {
   }, []);
 
   function onSubmit(values: ContactFormValues) {
-    submitInquiry.mutate(
-      { data: values },
-      {
-        onSuccess: () => {
-          setIsSuccess(true);
-          form.reset();
-        },
+  submitInquiry.mutate(
+    {
+      data: {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        propertyType: values.reason,
+        message: values.message,
       },
-    );
-  }
+    },
+    {
+      onSuccess: () => {
+        setIsSuccess(true);
+        form.reset();
+      },
+    }
+  );
+}
 
   return (
     <section ref={sectionRef} className="relative py-24 md:py-32 bg-[#F7F5F2] overflow-hidden" id="contact-form">

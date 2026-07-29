@@ -25,7 +25,7 @@ export default function Home() {
       <Hero />
 
       {/* ---- Phase 1: Trust + Story ---- */}
-      <TrustStats />
+      {/* <TrustStats /> */}
       <AboutEditorial />
 
       {/* ---- Phase 2: Services + Journey ---- */}

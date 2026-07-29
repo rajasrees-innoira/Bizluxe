@@ -65,7 +65,7 @@ export function PartnersStats() {
   const statsRef = useScrollAnimation<HTMLDivElement>({ type: 'fade-up', staggerDelay: 0.15 });
 
   return (
-    <section className="bg-[#F7F5F2] py-16 md:py-20 border-b border-[#D8D8D8]/60">
+    <section className="bg-[#F7F5F2] py-8 md:py-10 border-b border-[#D8D8D8]/60">
       <div className="container mx-auto px-6 md:px-12">
         <div
           ref={statsRef}
