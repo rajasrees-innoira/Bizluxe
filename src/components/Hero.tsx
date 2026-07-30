@@ -44,7 +44,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10 pb-10 sm:pb-14 md:pb-16 lg:pb-20 2xl:pb-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10 pb-28 sm:pb-24 md:pb-24 lg:pb-20 2xl:pb-24">
         <div className="max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl 2xl:max-w-4xl mx-auto text-center flex flex-col items-center">
           <div ref={headingRef} className="flex flex-col items-center">
             <h1 className="font-heading font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-[#F7F5F2] text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl [text-shadow:0_2px_24px_rgba(0,0,0,0.45)]">

@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import palmJumeirah from '@/assets/palm-jumeirah.jpg';
-import emiratesHills from '@/assets/emirates-hills.jpg';
-import marinaNight from '@/assets/marina-night.jpg';
-import resortVilla from '@/assets/resort-villa.jpg';
+import emiratesHills from '@/assets/imgi_53_property-values-2-4.jpg';
+import marinaNight from '@/assets/portfolio-landmark.jpg';
+import resortVilla from '@/assets/community-bluewaters.jpg';
 
 // -----------------------------------------------------------------------------
 // Content - same communities, same images, same prices

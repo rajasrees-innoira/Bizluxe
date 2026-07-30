@@ -49,7 +49,7 @@ export function TeamSection() {
           trigger: sectionRef.current,
           start: 'top top',
           end: `+=${totalDistance}`,
-          scrub: 0.6,
+          scrub: 0.25,
           pin: pinRef.current,
           anticipatePin: 1,
           invalidateOnRefresh: true,
@@ -58,8 +58,9 @@ export function TeamSection() {
           // (Footer). Snapping keeps every stop landing cleanly on a member.
           snap: {
             snapTo: 1 / (count - 1),
-            duration: 0.35,
+            duration: 0.18,
             ease: 'power1.inOut',
+            delay: 0.05,
           },
         },
         defaults: { ease: 'power2.inOut' },
@@ -114,20 +115,20 @@ export function TeamSection() {
   return (
     <section ref={sectionRef} className="relative bg-[#F7F5F2]" id="team">
       <div ref={pinRef} className="relative h-screen w-full overflow-hidden flex flex-col">
-        {/* Static heading - always visible, not part of the per-member animation */}
-        <div className="pt-24 md:pt-20 pb-6 md:pb-8 text-center px-6 shrink-0">
-          <p className="text-primary font-medium tracking-[0.3em] uppercase mb-3 text-xs md:text-sm">
+          {/* Static heading - always visible, not part of the per-member animation */}
+        <div className="pt-16 sm:pt-20 md:pt-20 pb-3 sm:pb-6 md:pb-8 text-center px-6 shrink-0">
+          <p className="text-primary font-medium tracking-[0.3em] uppercase mb-2 sm:mb-3 text-[10px] sm:text-xs md:text-sm">
             The People Behind BizLuxe
-          </p>
-          <h2 className="text-3xl md:text-5xl font-heading font-bold text-[#1F1F1F] leading-[1.05]">
+          </p> 
+          <h2 className="text-xl sm:text-3xl md:text-5xl font-heading font-bold text-[#1F1F1F] leading-[1.05]">
             Meet The Team
           </h2>
         </div>
 
         {/* Stage - one member locked in view at a time */}
-        <div className="flex-1 flex items-center overflow-hidden">
+        <div className="flex-1 flex items-center overflow-hidden min-h-0">
           <div className="container mx-auto px-6 md:px-12">
-           <div className="relative w-full max-w-5xl mx-auto h-[600px] sm:h-[540px] md:h-[440px]">
+           <div className="relative w-full max-w-5xl mx-auto h-[46vh] min-h-[280px] sm:h-[540px] md:h-[440px]">
               {TEAM_MEMBERS.map((member, i) => {
                 const reversed = i % 2 !== 0;
                 return (
@@ -145,9 +146,9 @@ export function TeamSection() {
                       className="w-full md:w-[42%] shrink-0"
                       style={{ willChange: 'transform, opacity' }}
                     >
-                      <div className="relative aspect-[4/5] max-h-[230px] sm:max-h-[280px] md:max-h-[800px] mx-auto rounded-[32px] md:rounded-[36px] overflow-hidden shadow-[0_30px_80px_-25px_rgba(31,31,31,0.3)] bg-[#1F1F1F]">
+                      <div className="relative aspect-[4/5] w-full max-w-[150px] sm:max-w-[220px] md:max-w-none max-h-[22vh] sm:max-h-none mx-auto rounded-[24px] sm:rounded-[32px] md:rounded-[36px] overflow-hidden shadow-[0_30px_80px_-25px_rgba(31,31,31,0.3)] bg-[#1F1F1F]">
                         {member.image ? (
-                          <img src={member.image} alt={member.name} className="w-full h-full object-fill" />
+                          <img src={member.image} alt={member.name} className="w-full h-full object-contain" />
                         ) : (
                           <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#2A2A2A] to-[#141211]">
                             <span className="font-heading text-5xl md:text-6xl font-bold text-primary/70">
@@ -172,14 +173,14 @@ export function TeamSection() {
                       }`}
                       style={{ willChange: 'transform, opacity' }}
                     >
-                      <p className="text-primary font-semibold tracking-[0.25em] uppercase text-xs md:text-sm mb-3">
+                      <p className="text-primary font-semibold tracking-[0.25em] uppercase text-[9px] sm:text-xs md:text-sm mb-1 sm:mb-3">
                         {member.role}
                       </p>
-                      <h3 className="text-3xl md:text-5xl font-heading font-bold text-[#1F1F1F] mb-4 leading-tight">
+                      <h3 className="text-lg sm:text-2xl md:text-5xl font-heading font-bold text-[#1F1F1F] mb-1 sm:mb-4 leading-tight">
                         {member.name}
                       </h3>
                       <p
-                        className={`text-[#5F5F5F] font-light leading-relaxed max-w-md mb-6 mx-auto ${
+                        className={`text-[#5F5F5F] font-light leading-snug sm:leading-relaxed text-xs sm:text-base max-w-md mb-2 sm:mb-6 mx-auto line-clamp-2 sm:line-clamp-none ${
                           reversed ? 'md:ml-auto md:mr-0' : 'md:mr-auto md:ml-0'
                         }`}
                       >
@@ -189,13 +190,13 @@ export function TeamSection() {
                         href={member.href}
                         target={member.href?.startsWith('http') ? '_blank' : undefined}
                         rel="noreferrer"
-                        className={`group inline-flex items-center gap-2 text-[#1F1F1F] font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 ${
+                        className={`group inline-flex items-center gap-2 text-[#1F1F1F] font-semibold text-xs sm:text-sm transition-all duration-300 hover:-translate-y-0.5 ${
                           reversed ? 'md:flex-row-reverse' : ''
                         }`}
                       >
-                        <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center group-hover:bg-primary transition-colors duration-300 shadow-sm group-hover:shadow-warm">
+                        <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white flex items-center justify-center group-hover:bg-primary transition-colors duration-300 shadow-sm group-hover:shadow-warm">
                           <Linkedin
-                            size={15}
+                            size={13}
                             className="text-[#1F1F1F] group-hover:text-white transition-colors duration-300"
                           />
                         </span>
@@ -217,7 +218,7 @@ export function TeamSection() {
         </div>
 
         {/* Progress dots - one per member, clearly shows position in the sequence */}
-        <div className="flex gap-2 justify-center pb-8 md:pb-10 shrink-0">
+        <div className="flex gap-2 justify-center pb-20 sm:pb-8 md:pb-10 shrink-0">
           {TEAM_MEMBERS.map((m, i) => (
             <span
               key={m.id}

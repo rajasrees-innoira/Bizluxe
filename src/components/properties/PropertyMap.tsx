@@ -76,7 +76,7 @@ export function PropertyMap({ properties, activeId, onSelect }: PropertyMapProps
   const [visibleInView, setVisibleInView] = useState(properties.length);
 
   return (
-    <div className="sticky top-[110px] h-[calc(100vh-140px)] rounded-[28px] overflow-hidden border border-[#D8D8D8]">
+    <div className="sticky top-[110px] h-[calc(100vh-140px)] max-h-full rounded-[28px] overflow-hidden border border-[#D8D8D8]">
       <MapContainer center={[25.15, 55.2]} zoom={11} scrollWheelZoom style={{ width: '100%', height: '100%' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

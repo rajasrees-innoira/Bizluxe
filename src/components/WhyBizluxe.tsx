@@ -93,19 +93,19 @@ const statsRef = useScrollAnimation({
 });
 
   return (
-    <section className="py-24 bg-[#F7F5F2] overflow-hidden" id="about">
+    <section className="min-h-screen flex items-center py-10 sm:py-12 md:py-16 bg-[#F7F5F2] overflow-hidden" id="about">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-center">
           
           {/* Image Side - 55% */}
           <div className="w-full lg:w-[55%] relative">
-            <div className="rounded-[80px] overflow-hidden relative aspect-[4/5] bg-[#D8D8D8]">
+            <div className="rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] overflow-hidden relative aspect-[5/4] sm:aspect-[4/4] lg:aspect-[4/5] max-h-[38vh] sm:max-h-[45vh] lg:max-h-none bg-[#D8D8D8]">
               <img 
                 src={minimalistInterior} 
                 alt="Luxury Interior" 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 border-[1px] border-white/20 rounded-[80px] m-4"></div>
+              <div className="absolute inset-0 border-[1px] border-white/20 rounded-[40px] sm:rounded-[60px] lg:rounded-[80px] m-4"></div>
             </div>
 
           </div>
@@ -113,14 +113,14 @@ const statsRef = useScrollAnimation({
           {/* Text Side - 45% */}
           <div className="w-full lg:w-[45%] flex flex-col justify-center">
             <div ref={textRef}>
-              <p className="text-primary font-medium tracking-widest uppercase mb-4 text-sm">The Bizluxe Standard</p>
-              <h2 className="text-5xl md:text-6xl font-heading font-bold text-[#1F1F1F] mb-8 leading-[1.1]">
+              <p className="text-primary font-medium tracking-widest uppercase mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm">The Bizluxe Standard</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-[#1F1F1F] mb-3 sm:mb-5 md:mb-8 leading-[1.1]">
                 WE DON'T JUST SELL PROPERTIES. <br/>
                 <span className="text-primary font-medium italic">WE CURATE LIFESTYLES.</span>
               </h2>
               
-              <div className="text-[#5F5F5F] text-lg font-light leading-relaxed space-y-6">
-                <p>
+              <div className="text-[#5F5F5F] text-sm sm:text-base md:text-lg font-light leading-relaxed space-y-2 sm:space-y-3 md:space-y-6">
+                <p className="hidden sm:block">
                   Bizluxe represents the absolute pinnacle of luxury real estate in Dubai. We cater to an exclusive clientele who expect nothing short of extraordinary. 
                 </p>
                 <p>
@@ -129,30 +129,31 @@ const statsRef = useScrollAnimation({
               </div>
             </div>
 
-            <div ref={statsRef} className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-[#D8D8D8] pt-8">
+            <div ref={statsRef} className="mt-4 sm:mt-6 md:mt-10 grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-5 md:gap-y-8 border-t border-[#D8D8D8] pt-4 sm:pt-6 md:pt-8">
               <div>
-                <h3 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-2">
+                <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-1 sm:mb-2">
                   <AnimatedCounter value={stats.totalProperties} />+
                 </h3>
-                <p className="text-[#1F1F1F] font-medium text-sm tracking-wide uppercase">Luxury Properties</p>
+                <p className="text-[#1F1F1F] font-medium text-[10px] sm:text-xs md:text-sm tracking-wide uppercase">Luxury Properties</p>
               </div>
               <div>
-                <h3 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-2">
+                <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-1 sm:mb-2">
                   <AnimatedCounter value={stats.totalTransactionsAED} />
                 </h3>
-                <p className="text-[#1F1F1F] font-medium text-sm tracking-wide uppercase">Transactions (AED)</p>
+                <p className="text-[#1F1F1F] font-medium text-[10px] sm:text-xs md:text-sm tracking-wide uppercase">Transactions (AED)</p>
               </div>
               <div>
-                <h3 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-2">
+                <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-1 sm:mb-2">
                   <AnimatedCounter value={stats.clientSatisfaction} />%
                 </h3>
-                <p className="text-[#1F1F1F] font-medium text-sm tracking-wide uppercase">Client Satisfaction</p>
+                <p className="text-[#1F1F1F] font-medium text-[10px] sm:text-xs md:text-sm tracking-wide uppercase">Client Satisfaction</p>
               </div>
               <div>
-                <h3 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-2">
+                <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-1 sm:mb-2">
+                  
                   <AnimatedCounter value={stats.totalCommunities} />
                 </h3>
-                <p className="text-[#1F1F1F] font-medium text-sm tracking-wide uppercase">Elite Communities</p>
+                <p className="text-[#1F1F1F] font-medium text-[10px] sm:text-xs md:text-sm tracking-wide uppercase">Elite Communities</p>
               </div>
             </div>
 

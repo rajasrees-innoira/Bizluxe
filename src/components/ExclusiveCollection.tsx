@@ -1,5 +1,5 @@
 // ExclusiveCollection.tsx
-import React, { useRef } from 'react';
+import React, { useState, useEffect , useRef } from 'react';
 import {
   motion,
   useScroll,
@@ -118,6 +118,15 @@ function PropertyReveal({ property, index }: { property: any; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const overlapRight = index % 2 === 0;
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   // Scroll measured across the ENTIRE tall wrapper (default offset:
   // ['start end', 'end start']) - this is what makes 0→1 span the full
@@ -136,7 +145,7 @@ function PropertyReveal({ property, index }: { property: any; index: number }) {
   // ---- Image: small → full size while pinned, over the first 60% ----
   // (bumped up so the starting thumbnail reads bigger, and the settled
   // image is noticeably larger/zoomed-in rather than landing at 1:1)
-  const imageScale = useTransform(progress, [0, 0.6], [0.78, 1]);
+  const imageScale = useTransform(progress, [0, 0.6], [0.78, isDesktop ? 0.9 : 1]);
   const imageRadius = useTransform(progress, [0, 0.6], [48, 24]);
 
   // ---- Card: fades up only once the image has finished expanding ----
@@ -169,7 +178,7 @@ function PropertyReveal({ property, index }: { property: any; index: number }) {
           staticFallback ? '' : 'sticky top-0 h-screen flex items-center overflow-hidden',
         )}
       >
-        <div className="relative mx-auto w-full" style={{ maxWidth: 1280 }}>
+        <div className="relative mx-auto w-full lg:max-w-[860px]" style={{ maxWidth: 1280 }}>
           {/* ---------------- Hero image ---------------- */}
           <motion.div
             className="relative w-full aspect-[4/5] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden"

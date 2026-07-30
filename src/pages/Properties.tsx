@@ -11,7 +11,7 @@ import { FullscreenGallery } from '@/components/properties/FullscreenGallery';
 import { useLikedProperties } from '@/hooks/useLikedProperties';
 import { useRecentlyViewed } from '@/hooks/useRecentlyViewed';
 import { PROPERTIES, DEFAULT_FILTERS, filterProperties, type Filters, type Property } from '@/data/Propertydata';
-
+import { PropertyInfoSection } from '@/components/properties/PropertyInfoSection';
 export default function Properties() {
   const [mapOpen, setMapOpen] = useState(false);
   const [activeId, setActiveId] = useState<number | null>(null);
@@ -91,7 +91,7 @@ export default function Properties() {
             </div>
           )}
 
-          <div className={mapOpen ? 'grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 items-start' : ''}>
+          <div className={mapOpen ? 'grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 items-stretch' : ''}>
             <PropertyGrid
               properties={visibleProperties}
               mapOpen={mapOpen}
@@ -101,21 +101,26 @@ export default function Properties() {
               onToggleLike={toggleLike}
               onQuickView={openQuickView}
               onOpenGallery={openGallery}
+              showInfoSection={!mapOpen}
+
             />
 
             {mapOpen && (
-              <div className="hidden lg:block">
+              <div className="hidden lg:block h-full">
                 <PropertyMap properties={filteredProperties} activeId={activeId} onSelect={handlePinClick} />
               </div>
             )}
           </div>
 
           {/* Mobile map toggle - since the map hides on mobile above */}
-          {mapOpen && (
-            <div className="lg:hidden mt-8">
-              <PropertyMap properties={filteredProperties} activeId={activeId} onSelect={handlePinClick} />
-            </div>
-          )}
+          <>
+              <div className="lg:hidden mt-8">
+                <PropertyMap properties={filteredProperties} activeId={activeId} onSelect={handlePinClick} />
+              </div>
+              <div className="lg:hidden">
+                <PropertyInfoSection />
+              </div>
+            </>
 
           {visibleProperties.length === 0 && (
             <div className="text-center py-20 text-[#5F5F5F]">

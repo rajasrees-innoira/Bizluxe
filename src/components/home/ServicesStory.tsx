@@ -166,16 +166,18 @@ export function ServicesStory() {
             style={{ willChange: 'transform, opacity' }}
           >
             <img src={s.image} alt="" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/30" />
+            {/* Lighter overall wash so the image stays visible; darkness concentrated only behind the text column */}
++            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
++            <div className="absolute inset-y-0 left-0 w-full sm:w-[70%] md:w-[55%] bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
           </div>
         ))}
 
         {/* Static heading */}
-        <div className="absolute top-14 md:top-16 left-1/2 -translate-x-1/2 z-20 text-center px-6">
-          <p className="text-primary font-medium tracking-[0.3em] uppercase text-xs md:text-sm mb-3">
+        <div className="absolute top-14 md:top-16 left-1/2 -translate-x-1/2 z-30 text-center px-6">
+          {/* <p className="text-primary font-medium tracking-[0.3em] uppercase text-xs md:text-sm mb-3">
             What We Do
-          </p>
-          <h2 className="font-heading font-bold text-3xl md:text-5xl text-white">Our Services</h2>
+          </p> */}
+          <h2 className="font-heading font-bold text-3xl md:text-5xl text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">Our Services</h2>
         </div>
 
         {/* Content per service */}
@@ -194,13 +196,13 @@ export function ServicesStory() {
                       {/* <p className="text-primary font-semibold tracking-[0.25em] uppercase text-xs md:text-sm mb-3">
                         {s.tagline}
                       </p> */}
-                      <h3 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+                      <h3 className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 drop-shadow-[0_2px_14px_rgba(0,0,0,0.65)]">
                         {s.title}
                       </h3>
-                       <p className="text-white/85 font-normal leading-relaxed mb-4 max-w-md">{s.desc}</p>
+                       <p className="text-white/95 font-normal leading-relaxed mb-4 max-w-md drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">{s.desc}</p>
                       <ul className="flex flex-col gap-2 mb-6">
                         {s.benefits.map((b) => (
-                          <li key={b} className="text-white/70 font-medium text-xs md:text-sm tracking-wide flex items-center gap-2">
+                         <li key={b} className="text-white/95 font-medium text-xs md:text-sm tracking-wide flex items-center gap-2 drop-shadow-[0_1px_5px_rgba(0,0,0,0.55)]">
                             <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
                             <span>{b}</span>
                           </li>
