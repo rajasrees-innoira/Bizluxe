@@ -14,19 +14,19 @@ import beachVilla from '@/assets/beach-villa.jpg';
 
 const BEATS = [
   {
-    eyebrow: '01 — Beyond the Listing',
+    eyebrow: '01 - Beyond the Listing',
     heading: 'We help you discover the right property, not just any property.',
     body: 'BizLuxe is a full-service luxury real estate company in Dubai, helping clients buy, sell, rent, and invest in premium properties. From exclusive villas and waterfront residences to luxury apartments and off-plan developments, every property we recommend is carefully selected for its location, quality, long-term value, and investment potential. Our goal is not simply to close a deal, but to help you make a confident real estate decision.',
     image: mansionExterior,
   },
   {
-    eyebrow: '02 — Beyond the Transaction',
+    eyebrow: '02 - Beyond the Transaction',
     heading: 'We guide buyers, investors, and businesses with expert advice.',
     body: 'Whether you are purchasing your first luxury home, expanding your investment portfolio, or searching for commercial real estate, our experienced advisors provide honest guidance at every stage. We analyze market trends, compare opportunities, explain legal processes, and leverage strong relationships with Dubai\'s leading developers to ensure every decision is informed, transparent, and aligned with your financial goals.',
     image: penthouseInterior,
   },
   {
-    eyebrow: '03 — Beyond the Sale',
+    eyebrow: '03 - Beyond the Sale',
     heading: 'We manage your property and build relationships that last.',
     body: 'Our commitment continues long after the purchase is complete. BizLuxe offers professional property management services, including tenant sourcing, rent collection, maintenance coordination, inspections, and ongoing property care. Whether you live in Dubai or overseas, we protect your investment, maximize its value, and provide complete peace of mind while building a long-term partnership you can rely on.',
     image: beachVilla,
@@ -73,7 +73,7 @@ export function AboutEditorial() {
 >
   <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 max-w-[1600px] 2xl:max-w-[1800px]">
     <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] xl:grid-cols-[0.7fr_1.3fr] gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-14 items-center">
-      {/* Image — smaller ceiling on md so it doesn't eat the viewport */}
+      {/* Image - smaller ceiling on md so it doesn't eat the viewport */}
       <div
         className="
           relative order-2 lg:order-1

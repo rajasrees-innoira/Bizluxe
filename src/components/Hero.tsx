@@ -4,11 +4,11 @@ import { Button } from './ui/button';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import heroVideo from '@/assets/hero.mp4';
 import heroPoster from '@/assets/hero.jpg';
-
+import { useLocation } from "wouter";
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-
+  const [, navigate] = useLocation();
   const headingRef = useScrollAnimation<HTMLDivElement>({ type: 'fade-up', staggerDelay: 0.2 });
   const buttonsRef = useScrollAnimation<HTMLDivElement>({ type: 'fade-up', staggerDelay: 0.4 });
   const statsRef = useScrollAnimation<HTMLDivElement>({ type: 'fade-up', staggerDelay: 0.6 });
@@ -60,9 +60,7 @@ export function Hero() {
           >
             <Button
               className="bg-white text-[#0C0C0C] hover:bg-primary hover:text-white rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 text-[11px] sm:text-xs md:text-sm font-semibold shadow-warm hover:-translate-y-1 transition-all duration-300"
-              onClick={() => {
-                document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => navigate("/properties")}
             >
               Explore Properties
             </Button>

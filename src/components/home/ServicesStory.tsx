@@ -32,7 +32,7 @@ const SERVICES: ServiceStep[] = [
     id: 1,
     title: 'Luxury Buying',
     tagline: 'Acquisition',
-    desc: 'Private access to Dubai\u2019s most exceptional residences \u2014 including listings that never reach the open market.',
+    desc: 'Private access to Dubai\u2019s most exceptional residences including listings that never reach the open market.',
     benefits: ['Off-market access', 'Senior advisor from day one', 'Full legal diligence'],
     cta: 'Start Your Search',
     image: mansionExterior,
