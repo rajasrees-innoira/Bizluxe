@@ -37,7 +37,7 @@ export default function Home() {
       <Communities />
       <Categories />
       <WhyBizluxe />
-      <ExclusiveCollection />
+      {/* <ExclusiveCollection /> */}
       <PropertyCarousel />
       <DeveloperPartners />
       <Testimonials />
